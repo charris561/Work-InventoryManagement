@@ -44,6 +44,8 @@ class Asset:
             self.__buildingCode = '145'
         elif (building == 'UCCS Downtown'):
             self.__buildingCode = '102'
+        elif (building == 'University Center'):
+            self.__buildingCode = '11-12A'
 
     def getBuildingCode(self):
         return self.__buildingCode

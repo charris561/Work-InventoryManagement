@@ -50,15 +50,17 @@ class GUI_Automation:
             pyautogui.write(currentAsset.getDescription())
             pyautogui.press('tab')
             pyautogui.write(currentAsset.getType())
+            time.sleep(.5)
             pyautogui.press('enter')
+            pyautogui.click(constants.WEBTMA_WHITESPACE_COORDS_x, constants.WEBTMA_WHITESPACE_COORDS_y)
 
             #data entry for non-mandatory fields
             if (currentAsset.getManufacturer() != None):
                 pyautogui.click(constants.MANUFACTURER_FIELD_COORDS_x, constants.MANUFACTURER_FIELD_COORDS_y)
                 pyautogui.click(constants.MANUFACTURER_FIELD_COORDS_x, constants.MANUFACTURER_FIELD_COORDS_y)
                 pyautogui.write(currentAsset.getManufacturer())
-                time.sleep(2)
-                pyautogui.press('enter')
+                pyautogui.press('tab')
+                pyautogui.click(constants.WEBTMA_WHITESPACE_COORDS_x, constants.WEBTMA_WHITESPACE_COORDS_y)
 
             if (currentAsset.getModelNum() != None):
                 pyautogui.click(constants.MODEL_NUM_FIELD_COORDS_x, constants.MODEL_NUM_FIELD_COORDS_y)
@@ -103,3 +105,34 @@ class GUI_Automation:
 
             #log that asset was imported successfully
             LOG.logImport(currentAsset)
+
+    def updateAsset(incomingAsset_List, searchParam):
+        '''
+        This function will be used to update specific fields in WebTMA for existing data in WebTMA
+        using a passed in search parameter.
+        '''
+        pyautogui.displayMousePosition()
+        for currentAsset in incomingAsset_List:
+            
+            #search for asset
+            pyautogui.PAUSE = 1
+            pyautogui.click(constants.SEARCH_BUTTON_COORDS_x, constants.SEARCH_BUTTON_COORDS_y)
+            
+            #set query in WebTMA to Tag Number > Contains > Tag number from list
+            pyautogui.click(constants.SEARCH_SEARCHBY_FIELD_x, constants.SEARCH_SEARCHBY_FIELD_y)
+            pyautogui.press('backspace')
+
+            #search by tag number
+            if (searchParam == "Tag Number"):
+                pyautogui.write("Tag Number")
+                pyautogui.press('tab')
+                pyautogui.write("contains")
+                pyautogui.press('tab')
+                pyautogui.write(currentAsset.getAssetTag())
+            
+            else:
+                pyautogui.write("Serial #")
+                pyautogui.press('tab')
+                pyautogui.write("contains")
+                pyautogui.press('tab')
+                pyautogui.write(currentAsset.getSerialNum())

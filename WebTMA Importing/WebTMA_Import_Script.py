@@ -18,16 +18,19 @@ import LOG
 #define workbook information
 #constants.INVENTORY_SPREADSHEET_FILENAME = f"Excel Documents\{sys.argv[1]}"
 #constants.INCOMING_DATA_SHEETNAME = sys.argv[2]
-constants.INVENTORY_SPREADSHEET_FILENAME = "Excel Documents\Chromebook Inventory.xlsx"
-constants.INCOMING_DATA_SHEETNAME = "INCOMING DATA"
+constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\OneDrive - University of Colorado Colorado Springs\\Work\\Inventory Management\\Inventory Excel Documents\\KFL SU22\\KFL Inventory 5-20.xlsx"
+constants.INCOMING_DATA_SHEETNAME = "Data"
 
 #Functions
+
 def guiAutomation(incomingAsset_List):
     '''
     This function will house the gui automation occuring with pyautogui
     '''
-    GUI_Automation.startNavToAsset()
-    GUI_Automation.inventoryAsset(incomingAsset_List)
+    #GUI_Automation.startNavToAsset()
+    #GUI_Automation.inventoryAsset(incomingAsset_List)
+    searchParameter = "Tag Number"
+    GUI_Automation.updateAsset(incomingAsset_List, searchParameter)
 
 #Main Script
 incomingAsset_List = []

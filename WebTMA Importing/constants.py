@@ -3,7 +3,7 @@
 #Date Created: 4/7/2022
 
 #file names (Inventory spreadsheet name and data sheet name defined in WebTMA_Import_Script.py)
-LOGFILE_PATH = "Log Files\ImportedAssets.csv"
+LOGFILE_PATH = "C:\\Users\\charris4\\OneDrive - University of Colorado Colorado Springs\\Work\\Inventory Management\\Data\\Log Files\\ImportedAssets.csv"
 LOGFILE_HEADERS = ['Tag Number', 'Description', 'Building Name', 'Area #', 'Serial #']
 
 #pyautogui needed data ("If using on another system, change these values!")
@@ -55,3 +55,7 @@ WEBTMA_SAVE_ASSET_BUTTON_COORDS_y = 140
 DEPARTMENT_CODE = "IT-ADMINISTRATIVE OPERATIONS"
 DEPARTMENT_FIELD_COORDS_x = 808
 DEPARTMENT_FIELD_COORDS_y = 346
+SEARCH_BUTTON_COORDS_x = 702
+SEARCH_BUTTON_COORDS_y = 139
+SEARCH_SEARCHBY_FIELD_x = 244
+SEARCH_SEARCHBY_FIELD_y = 312
