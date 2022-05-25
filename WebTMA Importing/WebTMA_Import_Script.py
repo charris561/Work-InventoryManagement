@@ -6,6 +6,7 @@
 #pyautogui documentation: https://pyautogui.readthedocs.io/en/latest/
 #openpyxl documentation: https://openpyxl.readthedocs.io/en/stable/
 #Note: The inventory spreadsheet will need to be located in the same directory as this script and must be named as the constant for the spreadsheet is (constants.py). 
+#How to install pyautogui in powershell: py -m pip install pyautogui
 
 #Imports
 import sys
