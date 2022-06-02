@@ -111,17 +111,17 @@ class GUI_Automation:
         This function will be used to update specific fields in WebTMA for existing data in WebTMA
         using a passed in search parameter.
         '''
-        pyautogui.displayMousePosition()
+        #pyautogui.displayMousePosition(); return
         for currentAsset in incomingAsset_List:
             
             #search for asset
             pyautogui.PAUSE = 1
             pyautogui.click(constants.SEARCH_BUTTON_COORDS_x, constants.SEARCH_BUTTON_COORDS_y)
             
-            #set query in WebTMA to Tag Number > Contains > Tag number from list
-            pyautogui.click(constants.SEARCH_SEARCHBY_FIELD_x, constants.SEARCH_SEARCHBY_FIELD_y)
-            pyautogui.press('backspace')
-
+            #set query in WebTMA to Tag Number > Contains > {searchParam} from list
+            time.sleep(1)
+            pyautogui.click(constants.SEARCH_SEARCHBY_FIELD_x, constants.SEARCH_SEARCHBY_FIELD_y, 2)
+            
             #search by tag number
             if (searchParam == "Tag Number"):
                 pyautogui.write("Tag Number")
@@ -130,9 +130,37 @@ class GUI_Automation:
                 pyautogui.press('tab')
                 pyautogui.write(currentAsset.getAssetTag())
             
-            else:
+            elif (searchParam == "Serial #"):
                 pyautogui.write("Serial #")
                 pyautogui.press('tab')
                 pyautogui.write("contains")
                 pyautogui.press('tab')
                 pyautogui.write(currentAsset.getSerialNum())
+
+            #Add additional search parameters here eventually
+            else:
+                exceptionText = f"\"{searchParam}\" invalid search parameter for object {currentAsset}\n"
+                raise Exception(exceptionText)
+
+            pyautogui.click(constants.SEARCH_FIND_BUTTON_COORDS_x, constants.SEARCH_FIND_BUTTON_COORDS_y)
+
+            #click on the first result and start editing the asset
+            pyautogui.click(constants.SEARCH_FIRST_RESULT_x, constants.SEARCH_FIRST_RESULT_y)
+            pyautogui.click(constants.EDIT_BUTTON_COORDS_x, constants.EDIT_BUTTON_COORDS_y)
+
+            #edit fields
+            if (currentAsset.getAreaNum() != None):
+                pyautogui.click(constants.LOCATION_ID_FIELD_COORDS_x, constants.LOCATION_ID_FIELD_COORDS_y)
+                pyautogui.click(constants.LOCATION_ID_FIELD_COORDS_x, constants.LOCATION_ID_FIELD_COORDS_y, 3, .5)
+                pyautogui.write(currentAsset.getLocationID())
+                pyautogui.press('enter')
+                pyautogui.press('tab', 2, .5)
+
+            else:
+                raise Exception(f"Could not find fields to update for {currentAsset}")
+
+            #save the asset and go to the next
+            pyautogui.click(constants.WEBTMA_SAVE_ASSET_BUTTON_COORDS_x, constants.WEBTMA_SAVE_ASSET_BUTTON_COORDS_y)
+
+            #log the updated asset
+            LOG.logImport(currentAsset)
