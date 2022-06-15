@@ -20,7 +20,7 @@ import LOG
 #constants.INVENTORY_SPREADSHEET_FILENAME = f"Excel Documents\{sys.argv[1]}"
 #constants.INCOMING_DATA_SHEETNAME = sys.argv[2]
 constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\OneDrive - University of Colorado Colorado Springs\\Work\\Inventory Management\\Data\\Excel Documents\\Moving Equipment Sheet.xlsx"
-constants.INCOMING_DATA_SHEETNAME = "Search By Serials"
+constants.INCOMING_DATA_SHEETNAME = "Search By Tag Numbers"
 
 #Functions
 
@@ -30,7 +30,8 @@ def guiAutomation(incomingAsset_List):
     '''
     #GUI_Automation.startNavToAsset()
     #GUI_Automation.inventoryAsset(incomingAsset_List)
-    searchParameter = "Serial #"
+    #searchParameter = "Serial #"
+    searchParameter = "Tag Number"
     GUI_Automation.updateAsset(incomingAsset_List, searchParameter)
 
 #Main Script

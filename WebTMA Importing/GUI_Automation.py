@@ -144,8 +144,10 @@ class GUI_Automation:
 
             pyautogui.click(constants.SEARCH_FIND_BUTTON_COORDS_x, constants.SEARCH_FIND_BUTTON_COORDS_y)
 
+            time.sleep(1)
             #click on the first result and start editing the asset
             pyautogui.click(constants.SEARCH_FIRST_RESULT_x, constants.SEARCH_FIRST_RESULT_y)
+            time.sleep(1.5)
             pyautogui.click(constants.EDIT_BUTTON_COORDS_x, constants.EDIT_BUTTON_COORDS_y)
 
             #edit fields
@@ -153,6 +155,7 @@ class GUI_Automation:
                 pyautogui.click(constants.LOCATION_ID_FIELD_COORDS_x, constants.LOCATION_ID_FIELD_COORDS_y)
                 pyautogui.click(constants.LOCATION_ID_FIELD_COORDS_x, constants.LOCATION_ID_FIELD_COORDS_y, 3, .5)
                 pyautogui.write(currentAsset.getLocationID())
+                time.sleep(1)
                 pyautogui.press('enter')
                 pyautogui.press('tab', 2, .5)
 
