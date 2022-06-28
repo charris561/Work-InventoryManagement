@@ -23,7 +23,14 @@ def logImport(asset):
     file = open(constants.LOGFILE_PATH, 'a', newline='')
     writer = csv.writer(file)
 
-    data = [asset.getAssetTag(), asset.getDescription(), asset.getBuilding(), asset.getAreaNum(), asset.getSerialNum()]
+    if (asset.hasAssetTag() and asset.hasDescription() and asset.hasBuilding() and asset.hasAreaNum() and asset.hasSerialNum()):
+        data = [asset.getAssetTag(), asset.getDescription(), asset.getBuilding(), asset.getAreaNum(), asset.getSerialNum()]
+    elif (asset.hasAssetTag()):
+        data = [asset.getAssetTag()]
+    elif (asset.hasSerialNum()):
+        data = [asset.getSerialNum()]
+    else:
+        data = "No information on object"
 
     writer.writerow(data)
     file.close

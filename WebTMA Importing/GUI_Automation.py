@@ -152,7 +152,7 @@ class GUI_Automation:
             pyautogui.click(constants.EDIT_BUTTON_COORDS_x, constants.EDIT_BUTTON_COORDS_y)
 
             #edit fields
-            if (currentAsset.getAreaNum() != None):
+            if (currentAsset.hasAreaNum()):
                 pyautogui.click(constants.LOCATION_ID_FIELD_COORDS_x, constants.LOCATION_ID_FIELD_COORDS_y)
                 pyautogui.click(constants.LOCATION_ID_FIELD_COORDS_x, constants.LOCATION_ID_FIELD_COORDS_y, 3, .5)
                 pyautogui.write(currentAsset.getLocationID())
@@ -168,3 +168,5 @@ class GUI_Automation:
 
             #log the updated asset
             LOG.logImport(currentAsset)
+
+            time.sleep(2)
