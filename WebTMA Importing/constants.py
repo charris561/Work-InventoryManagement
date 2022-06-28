@@ -3,7 +3,7 @@
 #Date Created: 4/7/2022
 
 #file names (Inventory spreadsheet name and data sheet name defined in WebTMA_Import_Script.py)
-LOGFILE_PATH = "C:\\Users\\charris4\\OneDrive - University of Colorado Colorado Springs\\Work\\Inventory Management\\Data\\Log Files\\ImportedAssets.csv"
+LOGFILE_PATH = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Data\\Log Files\\ImportedAssets.csv"
 LOGFILE_HEADERS = ['Tag Number', 'Description', 'Building Name', 'Area #', 'Serial #']
 
 #pyautogui needed data ("If using on another system, change these values!")

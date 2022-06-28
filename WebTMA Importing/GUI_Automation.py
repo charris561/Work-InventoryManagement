@@ -81,9 +81,10 @@ class GUI_Automation:
                 pyautogui.click(constants.ASSIGNED_TO_FIELD_COORDS_x, constants.ASSIGNED_TO_FIELD_COORDS_y)
                 pyautogui.write(currentAsset.getUserAssignedTo())
 
-            if (currentAsset.getQuantity() != None):
-                pyautogui.click(constants.QUANTITY_FIELD_COORDS_x, constants.QUANTITY_FIELD_COORDS_y)
-                pyautogui.write(f"{currentAsset.getQuantity()}")
+            if (currentAsset.hasQuantity()):
+                if (currentAsset.getQuantity() != None):
+                    pyautogui.click(constants.QUANTITY_FIELD_COORDS_x, constants.QUANTITY_FIELD_COORDS_y)
+                    pyautogui.write(f"{currentAsset.getQuantity()}")
 
             if (currentAsset.getComment() != None):
                 pyautogui.click(constants.COMMENT_FIELD_COORDS_x, constants.COMMENT_FIELD_COORDS_y)

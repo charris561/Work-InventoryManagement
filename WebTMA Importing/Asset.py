@@ -12,7 +12,21 @@ class Asset:
     '''
     #constructor fields from WebTMA fields
     def __init__(self):
-        pass
+        self.__hasAssetTag = False
+        self.__hasFacility = False
+        self.__hasQuantity = False
+        self.__hasBuilding = False
+        self.__hasBuildingCode = False
+        self.__hasAreaNum = False
+        self.__hasDescription = False
+        self.__hasType = False
+        self.__hasManufacturer = False
+        self.__hasModelNum = False
+        self.__hasSerialNum = False
+        self.__hasSerialNum = False
+        self.__hasWarrantyDate = False
+        self.__hasUserAssignedTo = False
+        self.__hasComment = False
 
     #function to define building code for areas on campus
     def setBuildingCode(self, building):
@@ -46,6 +60,8 @@ class Asset:
             self.__buildingCode = '102'
         elif (building == 'University Center'):
             self.__buildingCode = '11-12A'
+        elif (building == 'Cybersecurity'):
+            self.__buildingCode = '3650'
 
     def getBuildingCode(self):
         return self.__buildingCode
@@ -58,83 +74,143 @@ class Asset:
         return self.__assetTag
 
     def setAssetTag(self, assetTag):
+        self.__hasAssetTag = True
         self.__assetTag = assetTag
+
+    def hasAssetTag(self):
+        return self.__hasAssetTag
 
     def getFacility(self):
         return self.__facility
 
     def setFacility(self, facility):
+        self.__hasFacility = True
         self.__facility = facility
+
+    def hasFacility(self):
+        return self.__hasFacility
 
     def getBuilding(self):
         return self.__building
 
     def setBuilding(self, building):
+        self.__hasBuilding = True
+        self.__hasBuildingCode = True
         self.__building = building
         self.setBuildingCode(building)
+
+    def hasBuilding(self):
+        return self.__hasBuilding
+
+    def hasBuildingCode(self):
+        return self.__hasBuildingCode
         
     def getAreaNum(self):
         return self.__areaNum
 
     def setAreaNum(self, areaNum):
+        self.__hasAreaNum = True
         self.__areaNum = areaNum
+
+    def hasAreaNum(self):
+        return self.__hasAreaNum
 
     def getDescription(self):
         return self.__description
 
     def setDescription(self, description):
+        self.__hasDescription = True
         self.__description = description
+
+    def hasDescription(self):
+        return self.__hasDescription
 
     def getType(self):
         return self.__type
 
     def setType(self, type):
+        self.__hasType = True
         self.__type = type
+
+    def hasType(self):
+        return self.__hasType
 
     def getManufacturer(self):
         return self.__manufacturer
 
     def setManufacturer(self, manufacturer):
+        self.__hasManufacturer = True
         self.__manufacturer = manufacturer
+
+    def hasManufacturer(self):
+        return self.__hasManufacturer
 
     def getModelNum(self):
         return self.__modelNum
 
     def setModelNum(self, modelNum):
+        self.__hasModelNum = True
         self.__modelNum = modelNum
+
+    def hasModelNum(self):
+        return self.__hasModelNum
 
     def getSerialNum(self):
         return self.__serialNum
 
     def setSerialNum(self, serialNum):
+        self.__hasSerialNum = True
         self.__serialNum = serialNum
+
+    def hasSerialNum(self):
+        return self.__hasSerialNum
 
     def getInventoryDate(self):
         return self.__inventoryDate
 
     def setInventoryDate(self, date):
+        self.__hasInventoryDate = True
         self.__inventoryDate = date
+
+    def hasInventoryDate(self):
+        return self.__hasInventoryDate
 
     def getQuantity(self):
         return self.__quantity
 
     def setQuantity(self, quantity):
+        self.__hasQuantity = True
         self.__quantity = quantity
+
+    def hasQuantity(self):
+        return self.__hasQuantity
     
     def getWarrantyDate(self):
         return self.__warrantyDate
 
     def setWarrantyDate(self, warrantyDate):
+        self.__hasWarrantyDate = True
         self.__warrantyDate = warrantyDate
+
+    def hasWarrantyDate(self):
+        return self.__hasWarrantyDate
     
     def getUserAssignedTo(self):
         return self.__userAssigned
 
     def setUserAssignedTo(self, userAssigned):
+        self.__hasUserAssignedTo = True
         self.__userAssigned = userAssigned
+
+    def hasUserAssignedTo(self):
+        return self.__hasUserAssignedTo
     
     def getComment(self):
         return self.__comment
 
     def setComment(self, comment):
+        self.__hasComment = True
         self.__comment = comment
+
+    def hasComment(self):
+        return self.__hasComment
