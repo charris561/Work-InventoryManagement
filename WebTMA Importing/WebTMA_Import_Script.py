@@ -19,7 +19,8 @@ import LOG
 #define workbook information
 #constants.INVENTORY_SPREADSHEET_FILENAME = f"Excel Documents\{sys.argv[1]}"
 #constants.INCOMING_DATA_SHEETNAME = sys.argv[2]
-constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Inventory Excel Documents\\COLU SU22\\Columbine Hall Inventory.xlsx"
+#constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Inventory Excel Documents\\COLU SU22\\Columbine Hall Inventory.xlsx"
+constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Inventory Excel Documents\\COLU SU22\\testFile.xlsx"
 constants.INCOMING_DATA_SHEETNAME = "New Data"
 
 #Functions
