@@ -4,6 +4,7 @@
 
 from distutils.command.build import build
 from pickle import TRUE
+from re import sub
 
 
 class Asset:
@@ -27,6 +28,7 @@ class Asset:
         self.__hasWarrantyDate = False
         self.__hasUserAssignedTo = False
         self.__hasComment = False
+        self.__hasSubtype = False
 
     #function to define building code for areas on campus
     def setBuildingCode(self, building):
@@ -214,3 +216,14 @@ class Asset:
 
     def hasComment(self):
         return self.__hasComment
+
+    def getSubtype(self):
+        return self.__subtype
+    
+    def setSubtype(self, subtype):
+        self.__hasSubtype = True
+        self.__subtype = subtype
+
+    def hasSubtype(self):
+        return self.__hasSubtype
+    

@@ -41,7 +41,7 @@ def assignDataFields(asset, cellValue, currentHeaderVal):
         elif (currentHeaderVal == 'Facility'):
             asset.setFacility(cellValue)
         elif (currentHeaderVal == 'Subtype'):
-            print(f"Asset has a subtype: {cellValue}")
+            asset.setSubtype(cellValue)
     
 def getDataFromExcel(incomingAsset_List):
     """
