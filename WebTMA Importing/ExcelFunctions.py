@@ -42,6 +42,10 @@ def assignDataFields(asset, cellValue, currentHeaderVal):
             asset.setFacility(cellValue)
         elif (currentHeaderVal == 'Subtype'):
             asset.setSubtype(cellValue)
+        elif (currentHeaderVal == 'Vendor'):
+            asset.setVendor(cellValue)
+        else:
+            raise Exception(f"Header value: {currentHeaderVal} is unknown.")
     
 def getDataFromExcel(incomingAsset_List):
     """

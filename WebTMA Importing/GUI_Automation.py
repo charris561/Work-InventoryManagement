@@ -16,6 +16,13 @@ class GUI_Automation:
     pyautogui.PAUSE = .5
     pyautogui.FAILSAFE = True
 
+    def getMouseCoords():
+        '''
+        This function displays the mouse position's x and y coordinates. To use this fucntion, you must install the pillow package.
+        Syntax: pip install Pillow
+        '''
+        pyautogui.displayMousePosition()
+
     def startNavToAsset():
         '''
         This function will navigate to the "new asset" page of web tma
@@ -55,6 +62,18 @@ class GUI_Automation:
             pyautogui.click(constants.WEBTMA_WHITESPACE_COORDS_x, constants.WEBTMA_WHITESPACE_COORDS_y)
 
             #data entry for non-mandatory fields
+            if (currentAsset.getSubtype() != None):
+                pyautogui.click(constants.SUBTYPE_FIELDS_COORDS_x, constants.SUBTYPE_FIELDS_COORDS_y, 2)
+                pyautogui.write(currentAsset.getSubtype())
+                pyautogui.press('tab')
+                pyautogui.click(constants.WEBTMA_WHITESPACE_COORDS_x, constants.WEBTMA_WHITESPACE_COORDS_y)
+
+            if (currentAsset.getVendor() != None):
+                pyautogui.click(constants.VENDOR_FIELDS_COORDS_x, constants.VENDOR_FIELDS_COORDS_y, 2)
+                pyautogui.write(currentAsset.getVendor())
+                pyautogui.press('tab')
+                pyautogui.click(constants.WEBTMA_WHITESPACE_COORDS_x, constants.WEBTMA_WHITESPACE_COORDS_y)
+
             if (currentAsset.getManufacturer() != None):
                 pyautogui.click(constants.MANUFACTURER_FIELD_COORDS_x, constants.MANUFACTURER_FIELD_COORDS_y)
                 pyautogui.click(constants.MANUFACTURER_FIELD_COORDS_x, constants.MANUFACTURER_FIELD_COORDS_y)

@@ -29,6 +29,7 @@ def guiAutomation(incomingAsset_List):
     '''
     This function will house the gui automation occuring with pyautogui
     '''
+    #GUI_Automation.getMouseCoords()
     #GUI_Automation.startNavToAsset()
     GUI_Automation.inventoryAsset(incomingAsset_List)
     #searchParameter = "Serial #"

@@ -31,6 +31,7 @@ class Asset:
         self.__userAssigned = None
         self.__comment = None
         self.__subtype = None
+        self.__vendor = None
         
         #field boolean values
         self.__hasAssetTag = False
@@ -48,6 +49,7 @@ class Asset:
         self.__hasUserAssignedTo = False
         self.__hasComment = False
         self.__hasSubtype = False
+        self.__hasVendor = False
 
     #function to define building code for areas on campus
     def setBuildingCode(self, building):
@@ -246,3 +248,13 @@ class Asset:
     def hasSubtype(self):
         return self.__hasSubtype
     
+    def getVendor(self):
+        return self.__vendor
+
+    def setVendor(self, vendor):
+        self.__hasVendor = True
+        self.__vendor = vendor
+
+    def hasVendor(self):
+        return self.__hasVendor
+
