@@ -20,8 +20,9 @@ import LOG
 #constants.INVENTORY_SPREADSHEET_FILENAME = f"Excel Documents\{sys.argv[1]}"
 #constants.INCOMING_DATA_SHEETNAME = sys.argv[2]
 #constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Inventory Excel Documents\\COLU SU22\\Columbine Hall Inventory.xlsx"
-constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Inventory Excel Documents\\COLU SU22\\testFile.xlsx"
-constants.INCOMING_DATA_SHEETNAME = "New Data"
+#constants.INCOMING_DATA_SHEETNAME = "New Data"
+constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Inventory Excel Documents\\KFL SU22\\KFL Inventory 5-20.xlsx"
+constants.INCOMING_DATA_SHEETNAME = "Data"
 
 #Functions
 
@@ -31,10 +32,10 @@ def guiAutomation(incomingAsset_List):
     '''
     #GUI_Automation.getMouseCoords()
     #GUI_Automation.startNavToAsset()
-    GUI_Automation.inventoryAsset(incomingAsset_List)
+    #GUI_Automation.inventoryAsset(incomingAsset_List)
     #searchParameter = "Serial #"
-    #searchParameter = "Tag Number"
-    #GUI_Automation.updateAsset(incomingAsset_List, searchParameter)
+    searchParameter = "Tag Number"
+    GUI_Automation.updateAsset(incomingAsset_List, searchParameter)
 
 #Main Script
 incomingAsset_List = []

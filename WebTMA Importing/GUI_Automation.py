@@ -157,7 +157,7 @@ class GUI_Automation:
                 pyautogui.press('tab')
                 pyautogui.write(currentAsset.getSerialNum())
 
-            #Add additional search parameters here eventually
+            #Add additional search parameters here eventually if desired
             else:
                 exceptionText = f"\"{searchParam}\" invalid search parameter for object {currentAsset}\n"
                 raise Exception(exceptionText)
@@ -179,6 +179,7 @@ class GUI_Automation:
                 pyautogui.press('enter')
                 pyautogui.press('tab', 2, .5)
 
+            #Add additional fields to update here eventually if desired
             else:
                 raise Exception(f"Could not find fields to update for {currentAsset}")
 
