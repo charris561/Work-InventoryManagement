@@ -5,39 +5,16 @@
 #WebTMA URL: https://facserv.uccs.edu/TMALogin/login.aspx
 #pyautogui documentation: https://pyautogui.readthedocs.io/en/latest/
 #openpyxl documentation: https://openpyxl.readthedocs.io/en/stable/
-#Note: The inventory spreadsheet will need to be located in the same directory as this script and must be named as the constant for the spreadsheet is (constants.py). 
 #How to install pyautogui in powershell: py -m pip install pyautogui
 
 #Imports
-import sys
 import ExcelFunctions
 import constants
-from Asset import Asset
-from GUI_Automation import GUI_Automation
-import LOG
-
-#define workbook information
-#constants.INVENTORY_SPREADSHEET_FILENAME = f"Excel Documents\{sys.argv[1]}"
-#constants.INCOMING_DATA_SHEETNAME = sys.argv[2]
-#constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Inventory Excel Documents\\COLU SU22\\Columbine Hall Inventory.xlsx"
-#constants.INCOMING_DATA_SHEETNAME = "New Data"
-constants.INVENTORY_SPREADSHEET_FILENAME = "C:\\Users\\charris4\\University of Colorado Colorado Springs\\OIT Services Inventory Management - Documents\\Inventory Excel Documents\\KFL SU22\\KFL Inventory 5-20.xlsx"
-constants.INCOMING_DATA_SHEETNAME = "Data"
-
-#Functions
-
-def guiAutomation(incomingAsset_List):
-    '''
-    This function will house the gui automation occuring with pyautogui
-    '''
-    #GUI_Automation.getMouseCoords()
-    #GUI_Automation.startNavToAsset()
-    #GUI_Automation.inventoryAsset(incomingAsset_List)
-    #searchParameter = "Serial #"
-    searchParameter = "Tag Number"
-    GUI_Automation.updateAsset(incomingAsset_List, searchParameter)
+import GUI
 
 #Main Script
+constants.INVENTORY_SPREADSHEET_FILENAME = GUI.getFilePath()
+constants.INCOMING_DATA_SHEETNAME = GUI.getSheetName()
 incomingAsset_List = []
 ExcelFunctions.getDataFromExcel(incomingAsset_List)
-guiAutomation(incomingAsset_List)
+GUI.cmdMenu(incomingAsset_List)
