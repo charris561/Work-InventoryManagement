@@ -6,6 +6,8 @@ import os
 import GUI_Automation
 import tkinter as tk
 from tkinter import filedialog
+import constants
+from ExcelFunctions import getSheetNames
 
 def getFilePath():
     root = tk.Tk()
@@ -126,3 +128,8 @@ Date Created: 7/20/2022
             print("Unkown menu choice. Please select another option.")
 
         input("Press any key to continue.")
+
+def displayExcelSheetNames():
+    print(f"------------------------------\nAvailable Sheets for file: {constants.INVENTORY_SPREADSHEET_FILENAME}")
+    print(f"{getSheetNames()}\n------------------------------\n")
+

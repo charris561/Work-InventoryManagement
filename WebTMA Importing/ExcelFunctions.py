@@ -75,3 +75,10 @@ def getDataFromExcel(incomingAsset_List):
 
                 if (col == cols - 1):
                     incomingAsset_List.append(asset)
+
+def getSheetNames():
+    '''
+    This function will read the excel file and return all available sheet names.
+    '''
+    workbook = load_workbook(filename = constants.INVENTORY_SPREADSHEET_FILENAME)
+    return workbook.sheetnames
