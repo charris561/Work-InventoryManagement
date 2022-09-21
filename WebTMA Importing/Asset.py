@@ -4,14 +4,36 @@
 
 from distutils.command.build import build
 from pickle import TRUE
+from re import sub
 
 
 class Asset:
     '''
     This class will define an Asset object
     '''
-    #constructor fields from WebTMA fields
+    #constructor
     def __init__(self):
+
+        #initialize variables for asset object
+        #fields
+        self.__assetTag = None
+        self.__facility = None
+        self.__quantity = None
+        self.__building = None
+        self.__buildingCode = None
+        self.__areaNum = None
+        self.__description = None
+        self.__type = None
+        self.__manufacturer = None
+        self.__modelNum = None
+        self.__serialNum = None
+        self.__warrantyDate = None
+        self.__userAssigned = None
+        self.__comment = None
+        self.__subtype = None
+        self.__vendor = None
+        
+        #field boolean values
         self.__hasAssetTag = False
         self.__hasFacility = False
         self.__hasQuantity = False
@@ -23,10 +45,11 @@ class Asset:
         self.__hasManufacturer = False
         self.__hasModelNum = False
         self.__hasSerialNum = False
-        self.__hasSerialNum = False
         self.__hasWarrantyDate = False
         self.__hasUserAssignedTo = False
         self.__hasComment = False
+        self.__hasSubtype = False
+        self.__hasVendor = False
 
     #function to define building code for areas on campus
     def setBuildingCode(self, building):
@@ -214,3 +237,24 @@ class Asset:
 
     def hasComment(self):
         return self.__hasComment
+
+    def getSubtype(self):
+        return self.__subtype
+    
+    def setSubtype(self, subtype):
+        self.__hasSubtype = True
+        self.__subtype = subtype
+
+    def hasSubtype(self):
+        return self.__hasSubtype
+    
+    def getVendor(self):
+        return self.__vendor
+
+    def setVendor(self, vendor):
+        self.__hasVendor = True
+        self.__vendor = vendor
+
+    def hasVendor(self):
+        return self.__hasVendor
+

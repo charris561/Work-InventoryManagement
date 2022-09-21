@@ -10,35 +10,42 @@ from openpyxl.utils import get_column_letter
 def assignDataFields(asset, cellValue, currentHeaderVal):
     '''
     Function assigns passed in value to field in passed in asset object
-    Note: The string compared to currentHeaderVal must be exactly the same as the columns in excel
-        and all headers must be present on spreadsheet but may be empty. 
+    Note: The string compared to currentHeaderVal must be exactly the same as the columns in excel.
+        The headers may or may not be present in the excel file. 
     '''
-    if (currentHeaderVal == 'Tag Number'):
-        asset.setAssetTag(cellValue)
-    elif (currentHeaderVal == 'Description'):
-        asset.setDescription(cellValue)
-    elif (currentHeaderVal == 'Building Name'):
-        asset.setBuilding(cellValue)
-    elif (currentHeaderVal == 'Area #'):
-        asset.setAreaNum(cellValue)
-    elif (currentHeaderVal == 'Serial #'):
-        asset.setSerialNum(cellValue)
-    elif (currentHeaderVal == 'Model #'):
-        asset.setModelNum(cellValue)
-    elif (currentHeaderVal == 'Manufacturer'):
-        asset.setManufacturer(cellValue)
-    elif (currentHeaderVal == 'Type'):
-        asset.setType(cellValue)
-    elif (currentHeaderVal == 'Quantity'):
-        asset.setQuantity(cellValue)
-    elif (currentHeaderVal == 'Warranty Expires'):
-        asset.setWarrantyDate(f"{cellValue}")
-    elif (currentHeaderVal == 'Assigned To'):
-        asset.setUserAssignedTo(cellValue)
-    elif (currentHeaderVal == 'Comment'):
-        asset.setComment(cellValue)
-    elif (currentHeaderVal == 'Facility'):
-        asset.setFacility(cellValue)
+    if (cellValue != None):
+        if (currentHeaderVal == 'Tag Number'):
+            asset.setAssetTag(cellValue)
+        elif (currentHeaderVal == 'Description'):
+            asset.setDescription(cellValue)
+        elif (currentHeaderVal == 'Building Name'):
+            asset.setBuilding(cellValue)
+        elif (currentHeaderVal == 'Area #'):
+            asset.setAreaNum(cellValue)
+        elif (currentHeaderVal == 'Serial #'):
+            asset.setSerialNum(cellValue)
+        elif (currentHeaderVal == 'Model #'):
+            asset.setModelNum(cellValue)
+        elif (currentHeaderVal == 'Manufacturer'):
+            asset.setManufacturer(cellValue)
+        elif (currentHeaderVal == 'Type'):
+            asset.setType(cellValue)
+        elif (currentHeaderVal == 'Quantity'):
+            asset.setQuantity(cellValue)
+        elif (currentHeaderVal == 'Warranty Expires'):
+            asset.setWarrantyDate(f"{cellValue}")
+        elif (currentHeaderVal == 'Assigned To'):
+            asset.setUserAssignedTo(cellValue)
+        elif (currentHeaderVal == 'Comment'):
+            asset.setComment(cellValue)
+        elif (currentHeaderVal == 'Facility'):
+            asset.setFacility(cellValue)
+        elif (currentHeaderVal == 'Subtype'):
+            asset.setSubtype(cellValue)
+        elif (currentHeaderVal == 'Vendor'):
+            asset.setVendor(cellValue)
+        else:
+            raise Exception(f"Header value: {currentHeaderVal} is unknown.")
     
 def getDataFromExcel(incomingAsset_List):
     """
@@ -47,6 +54,8 @@ def getDataFromExcel(incomingAsset_List):
 
     #define workbook
     inventoryWorkbook = load_workbook(filename = constants.INVENTORY_SPREADSHEET_FILENAME)
+    
+    
     incomingDataSheet = inventoryWorkbook[constants.INCOMING_DATA_SHEETNAME]
 
     #find rows and cols of sheet including header line
