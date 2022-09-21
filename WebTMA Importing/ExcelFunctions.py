@@ -58,8 +58,11 @@ def getDataFromExcel(incomingAsset_List):
     inventoryWorkbook = load_workbook(filename = constants.INVENTORY_SPREADSHEET_FILENAME)
     
     #define sheet
-    print("\nExcel sheets in this file: ")
-    print (inventoryWorkbook.sheetnames)
+    print("\nExcel sheets in this file: \n------------------------------")
+    sheetNames = inventoryWorkbook.sheetnames
+    for sheet in sheetNames:
+        print(sheet)
+    print("------------------------------\n")
     constants.INCOMING_DATA_SHEETNAME = GUI.getSheetName()
     incomingDataSheet = inventoryWorkbook[constants.INCOMING_DATA_SHEETNAME]
 
