@@ -14,8 +14,6 @@ import constants
 import GUI
 
 #Main Script
-constants.INVENTORY_SPREADSHEET_FILENAME = GUI.getFilePath()
-constants.INCOMING_DATA_SHEETNAME = GUI.getSheetName()
 incomingAsset_List = []
 ExcelFunctions.getDataFromExcel(incomingAsset_List)
 GUI.cmdMenu(incomingAsset_List)

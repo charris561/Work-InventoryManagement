@@ -6,6 +6,7 @@ from Asset import Asset
 import constants
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
+import GUI
 
 def assignDataFields(asset, cellValue, currentHeaderVal):
     '''
@@ -53,9 +54,13 @@ def getDataFromExcel(incomingAsset_List):
     """
 
     #define workbook
+    constants.INVENTORY_SPREADSHEET_FILENAME = GUI.getFilePath()
     inventoryWorkbook = load_workbook(filename = constants.INVENTORY_SPREADSHEET_FILENAME)
     
-    
+    #define sheet
+    print("\nExcel sheets in this file: ")
+    print (inventoryWorkbook.sheetnames)
+    constants.INCOMING_DATA_SHEETNAME = GUI.getSheetName()
     incomingDataSheet = inventoryWorkbook[constants.INCOMING_DATA_SHEETNAME]
 
     #find rows and cols of sheet including header line
